@@ -48,21 +48,23 @@ if (isset($postdata) && !empty($postdata)) {
     $store_user->execute([
         "username" => $username,
         "email" => $email,
-        "password"  => $password
+        "password"  => password_hash($password, PASSWORD_DEFAULT)
     ]);
 
-    // if (trim($request->data->username) === 'hey') {
-    //     $response = [
-    //         'status'  => false,
-    //         'username '  => $username,
-    //         'email '  => $email,
-    //         'password '  => $password,
-    //         'passwordConfirm '  => $passwordConfirm,
-    //         'message' => 'username failed',
-    //     ];
-    //     echo json_encode(['data' => $response]);
-    //     return http_response_code(400);
-    // }
+    if ($store_user) {
+        $response = [
+            'status'  => true,
+            'message' => 'user created',
+            'result' => [
+               'username' => $username,
+               'email'    => $email,
+               'password' => $password,
+             ]
+
+        ];
+        echo json_encode(['data' => $response]);
+        return http_response_code(400);
+    }
 
 
     // if (trim($request->data->username) === 'hey') {
