@@ -56,10 +56,9 @@ if (isset($postdata) && !empty($postdata)) {
             'status'  => true,
             'message' => 'user created',
             'result' => [
-               'username' => $username,
-               'email'    => $email,
-               'password' => $password,
-             ]
+                'username' => $username,
+                'email'    => $email,
+            ]
 
         ];
         echo json_encode(['data' => $response]);

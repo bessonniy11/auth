@@ -38,7 +38,7 @@ if (isset($postdata) && !empty($postdata)) {
         $response = [
             'status'  => false,
             'email '  => $email,
-            'message' => 'Incorrect username or password',
+            'message' => 'Неверный логин или пароль',
         ];
         echo json_encode(['data' => $response]);
         return http_response_code(400);
@@ -50,7 +50,6 @@ if (isset($postdata) && !empty($postdata)) {
             'id'  => $user["id"],
             'username'  => $user["username"],
             'email'  => $user["email"],
-            'password'  => $user["password"],
             'message' => 'successful authorization',
         ];
         echo json_encode(['data' => $response]);
@@ -59,7 +58,7 @@ if (isset($postdata) && !empty($postdata)) {
         $response = [
             'status'  => false,
             'email '  => $email,
-            'message' => 'Incorrect username or password',
+            'message' => 'Неверный логин или пароль',
         ];
         echo json_encode(['data' => $response]);
         return http_response_code(400);
