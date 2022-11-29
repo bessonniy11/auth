@@ -50,6 +50,7 @@ if (isset($postdata) && !empty($postdata)) {
             'id'  => $user["id"],
             'username'  => $user["username"],
             'email'  => $user["email"],
+            'password'  => $user["password"],
             'message' => 'successful authorization',
         ];
         echo json_encode(['data' => $response]);
